@@ -5,18 +5,21 @@ _Why does ground effect increase lift? Can classical aerodynamics predict it?_
 This project aims to reproduce results from the paper titled "Airfoil Aerodynamics in Ground Effect for Wide Range of Angles of Attack" by Qiulin Qu, Wei Wang, and Peiqing Liu, published in the AIAA Journal in 2014. The focus is on analyzing the aerodynamics of airfoils in ground effect using potential flow theory and thin airfoil theory, compared against viscous Computational Fluid Dynamics (CFD) results.
 
 ### Potential Flow Theory
-1. **Conformal Mapping**: The project utilizes a conformal mapping technique to transform the geometry of the airfoils with ground effect into two circles. This method allows for easier analytical solutions for potential flow over the airfoils.
-   <img src="ConformalMaps.png" alt="Conformal mapping of airfoils" width="600"/>
-
-2. **Flow over Cylinders**: Once the airfoil shapes are mapped to circles, the flow properties over two cylinders are calculated. This provides the necessary aerodynamic properties to analyze the effects of ground proximity.
-   <img src="images/FlowOverCylinders.png" alt="Flow over two cylinders" width="600"/>
+1. **Conformal Mapping**: The project utilizes a conformal mapping technique to transform the geometry of the airfoils with ground effect into two circles. This method allows for easier analytical solutions for potential flow over the airfoils. The process takes three steps: The airfoil and its mirror image to simulate the ground are mapped to quasi-circular domains by removing the sharp trailing edge, and then mapped to two perfect cylinders with a Fornberg-like conformal method.
+2. **Flow over Cylinders**: Once the airfoil shapes are mapped to circles, the flow properties over two cylinders are calculated by repeated application of the Milne-Thomson circle theorem. This provides the necessary aerodynamic properties to analyze the effects of ground proximity.
+   <div align="center">
+      <img src="Images/ConformalMaps.png" alt="Conformal mapping of airfoils" height="300"/>
+      <img src="Images/FlowOverCylinders.png" alt="Flow over two cylinders" height="300"/>
+   </div>
 
 ### Thin Airfoil Theory (No Ground Effect)
-- **Classical Thin Airfoil Theory**: This section employs classical thin airfoil theory to derive expressions for lift and drag coefficients without considering ground effect. The theory uses trigonometric expansions to model the flow around the airfoil.
+- **Classical Thin Airfoil Theory**: This section employs classical thin airfoil theory to derive expressions for lift and drag coefficients without considering the ground effect. The theory uses trigonometric expansions to model the flow around the airfoil.
 
 - **Discrete Vortex Method**: The Discrete Vortex Method (DVM) is implemented to visualize the flow field around the airfoil and compute aerodynamic properties. The DVM discretizes the circulation around the airfoil to obtain lift and drag characteristics effectively.
-   <img src="images/thinairfoilComparison.png" alt="Results comparison for thin airfoil theory" width="600"/>
-   <img src="images/tatflow.png" alt="Flow visualization over the airfoil" width="600"/>
+<div align="center">
+   <img src="Images/thinairfoilComparison.png" alt="Results comparison for thin airfoil theory" width="400"/>
+   <img src="Images/tatflow.png" alt="Flow visualization over the airfoil" width="400"/>
+</div>
 
 ## Conclusion
-We encourage you to explore the results generated from this project and delve deeper into the analysis provided. The insights gained from the comparison of potential flow theory and thin airfoil theory with CFD results offer valuable perspectives on airfoil performance in ground effect. For a comprehensive understanding, we recommend reading the full report to grasp the methodologies and findings in detail.
+The inviscid ideal theories show good agreements for low angles of attack, and far from the ground. In other cases viscosity plays an important role in lift and pressure distribution calculation. For details, we encourage you to look at the report.pdf!
